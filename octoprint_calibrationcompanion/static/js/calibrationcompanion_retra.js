@@ -93,6 +93,7 @@ $(function() {
                 } else if (restrictedInputsRetra.indexOf('#' + id) === 8) {
                     mainViewModel.checkValue(element, div, mainViewModel.allowedArrayComma)
                 }
+            });
             if (mainViewModel.nozzle_size() === "0.6") {
                 stageHeightRetra = 4.2;
                 baseHeight = 1.8;
@@ -102,7 +103,7 @@ $(function() {
             } else {
                 stageHeightRetra = 4;
                 baseHeight = 2;
-            }            }
+            }
             mainViewModel.spanValRetra = Math.round(baseHeight/(mainViewModel.nozzle_size()/2));
         }
         
@@ -130,16 +131,17 @@ $(function() {
             } else {
                 self.PNotify = new PNotify(mainViewModel.PNotifyData.noProfileMessage)
             }
+        }
+
+        self.addRetraction = function () {
             if (mainViewModel.nozzle_size() === "0.6") {
                 stageHeightRetra = 4.2;
                 baseHeight = 1.8;
             } else if (mainViewModel.nozzle_size() === "1.0") {
                 stageHeightRetra = 5;
                 baseHeight = 3;
-            } else {
+                } else {
                 stageHeightRetra = 4;
-                baseHeight = 2;
-            }                stageHeightRetra = 4;
                 baseHeight = 2;
             }
             if (mainViewModel.bed_size_z() > mainViewModel.spanValRetra * (mainViewModel.nozzle_size()/2)) {
